@@ -44,14 +44,13 @@ export const renderModels = (models/** Models Type */) => models.map(({ title, f
 
     const loader = new OBJLoader();
     loader.load(filePath, function (object) {
-        console.log('loading')
         let scale = 10;
         object.traverse(function (child) {
             if (child instanceof THREE.Mesh) {
                 child.geometry.center();
                 child.geometry.computeBoundingSphere();
                 // scale = 0.2 * child.geometry.boundingSphere.radius;
-                const normalMaterial = new THREE.MeshNormalMaterial({ color: 0xff0000, opacity: 0.5 });
+                const normalMaterial = new THREE.MeshNormalMaterial({ opacity: 0.5 });
                 child.material = normalMaterial;
                 child.receiveShadow = true;
                 child.castShadow = true;
