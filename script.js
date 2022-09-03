@@ -20,10 +20,10 @@ export const renderModels = (models/** Models Type */) => models.map(({ title, f
 
     var renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth*0.8, window.innerHeight*0.8);
-    const titleElement = document.createElement('h1')
+    const titleElement = document.createElement('h3')
     titleElement.innerText = title
-    document.body.append(titleElement);
-    document.body.append(renderer.domElement);
+    document.querySelector('#models-container').append(titleElement);
+    document.querySelector('#models-container').append(renderer.domElement);
 
     renderer.render(scene, camera);
 
