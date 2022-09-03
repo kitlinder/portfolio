@@ -3,17 +3,18 @@ import * as THREE from 'three';
 import { OrbitControls } from 'OrbitControls';
 import { OBJLoader } from 'OBJLoader';
 /**
- * 
+ * Models Type:
  * [
  *   {
  *     title: "My part",
- *     filePath: 'demo_1.obj'
+ *     filePath: 'demo_1.obj',
+ *     scale: 1
  *   }
  * ]
  *  
  */
 
-window.renderModels = () => models.map(({ title, filePath }) => {
+export const renderModels = (models/** Models Type */) => models.map(({ title, filePath }) => {
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight);
 
@@ -50,8 +51,8 @@ window.renderModels = () => models.map(({ title, filePath }) => {
                 child.geometry.center();
                 child.geometry.computeBoundingSphere();
                 // scale = 0.2 * child.geometry.boundingSphere.radius;
-                const phongMaterial = new THREE.MeshNormalMaterial({ color: 0xff0000, opacity: 0.5 });
-                child.material = phongMaterial;
+                const normalMaterial = new THREE.MeshNormalMaterial({ color: 0xff0000, opacity: 0.5 });
+                child.material = normalMaterial;
                 child.receiveShadow = true;
                 child.castShadow = true;
             }

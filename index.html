@@ -10,7 +10,8 @@
             "imports": {
                 "three": "https://unpkg.com/three@0.138.0/build/three.module.js",
                 "OrbitControls": "https://unpkg.com/three@0.138.0/examples/jsm/controls/OrbitControls.js",
-                "OBJLoader": "https://unpkg.com/three@0.138.0/examples/jsm/loaders/OBJLoader.js"
+                "OBJLoader": "https://unpkg.com/three@0.138.0/examples/jsm/loaders/OBJLoader.js",
+                "script": "./script.js"
             }
         }
     </script>
@@ -29,10 +30,10 @@
         <a href="https://linkedin.com/in/kitlinder">LinkedIn</a>
         <a href="/resume.pdf">Resume</a>
     </footer>
-    <script async type="module" src="/script.js">
+    <script async type="module" src="/script.js"></script>
+    <script type="module">
+        import { renderModels } from 'script'
 
-    </script>
-    <script type="text/javascript">
         const models = [
             {
                 title: "My Part",
@@ -43,9 +44,8 @@
                 filePath: 'demo_1.obj',
             },
         ];
-        window.renderModels()
+        
+        renderModels(models)
     </script>
-    <!-- Import maps polyfill -->
-    <!-- Remove this when import maps will be widely supported -->
 </body>
 </html>
